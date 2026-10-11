@@ -284,5 +284,5 @@ h2{font-size:18px;margin:24px 0 6px} h3{font-size:16px;margin:0} .th{display:fle
 function lazy(s){s.querySelectorAll('[data-src]').forEach(el=>{el.src=el.dataset.src;el.removeAttribute('data-src')})}
 function show(k){document.querySelectorAll('section.run').forEach(s=>s.hidden=s.id!=='s-'+k);lazy(document.getElementById('s-'+k));if(location.hash.slice(1)!==k)history.replaceState(null,'','#'+k)}
 const pick=document.getElementById('pick');pick.addEventListener('change',()=>{show(pick.value);scrollTo(0,0)});
-const h=location.hash.slice(1).split('-')[0];if([...pick.options].some(o=>o.value===h))pick.value=h;show(pick.value);
+const h=location.hash.slice(1).replace(/-t[0-9]+$/,'');if([...pick.options].some(o=>o.value===h))pick.value=h;show(pick.value);
 </script></body></html>
